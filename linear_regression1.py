@@ -1,3 +1,5 @@
+# Implementing linear regression WITHOUT using scikit-learn.
+
 import numpy as np
 import matplotlib.pyplot as plt
 
