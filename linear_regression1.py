@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from numpy import genfromtxt as gft
 
 def estimate_coefficients(x, y):
     n= np.size(x)
@@ -23,25 +24,38 @@ def graph_of_regression(x, y, b):
     plt.show()
 
 def main():
-    size= int(input("Enter the size of X attribute:"))
-    x=[]
-    y=[]
-    print("Enter the X Elements:")
-    for i in range(size):
-        element= int(input())
-        x.append(element)
-    print("Enter the Y Elements:")
-    for i in range(size):
-        element= int(input())
-        y.append(element)
+    c=input('Enter manually or read from a csv file?')
+    if(c=="Y"):
+        size= int(input("Enter the size of X attribute:"))
+        x=[]
+        y=[]
+        print("Enter the X Elements:")
+        for i in range(size):
+            element= int(input())
+            x.append(element)
+        print("Enter the Y Elements:")
+        for i in range(size):
+            element= int(input())
+            y.append(element)
 
-    x= np.array(x)
-    y= np.array(y)
+        x= np.array(x)
+        y= np.array(y)
+
+    else:
+        data= gft('test_file.csv',delimiter=',')
+        X=[]
+        Y=[]
+        for major in data:
+            X.append(major[0])
+            Y.append(major[1])
+        x= np.array(X)
+        y= np.array(Y)
 
     print("Estimated coefficients of linear regression are: ")
-    print(estimate_coefficients(x,y))
+    print(estimate_coefficients(x, y))
     print("Graph:")
-    graph_of_regression(x,y,estimate_coefficients(x,y))
+    graph_of_regression(x, y, estimate_coefficients(x, y))
+    
 
 if __name__=="__main__":
     main()
