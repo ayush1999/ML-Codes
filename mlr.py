@@ -1,0 +1,23 @@
+from sklearn.linear_model import LinearRegression
+import random
+
+def f(x1, x2):      
+    y = 10 + 20*x1 +30*x2                       # regr.coef_ should be approximately equal to 20 and 30
+    error = random.uniform(-0.1,0.1)            # regr.intercept_ should be equal to 10 approximately.
+    return y+error
+values= []
+for i in range(300):
+    x1 = random.uniform(0,1000)
+    x2 = random.uniform(0,1000)
+    y = f(x1,x2)
+    values.append([[x1,x2],y])
+
+regr = LinearRegression()
+x, y = zip(*values)
+x_train = list(x[:-20])
+y_train = list(y[:-20])
+
+regr.fit(x_train,y_train)
+
+print(regr.coef_)
+print(regr.intercept_)    
