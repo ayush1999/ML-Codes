@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from numpy import genfromtxt as gft
 
+#estimate coeffcients
+
 def estimate_coefficients(x, y):
     n= np.size(x)
     m_x,m_y= np.mean(x),np.mean(y)
@@ -13,6 +15,7 @@ def estimate_coefficients(x, y):
     b_0 = m_y- b_1*m_x
 
     return (b_0,b_1)
+#plotting the graph of regression
 
 def graph_of_regression(x, y, b):
     plt.scatter(x,y,color="m", marker="o",s= 30)
@@ -22,7 +25,7 @@ def graph_of_regression(x, y, b):
     plt.ylabel("y")
 
     plt.show()
-
+#the main block
 def main():
     c=input('Enter manually or read from a csv file?')
     if(c=="Y"):
