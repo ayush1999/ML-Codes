@@ -1,4 +1,4 @@
 [cli]
 bears = SpaceConsistencyBear,PEP8Bear
-files = 1.py, iris_nn.py, linear_regression 1.py, linear_regression 2.py, logistic_regression.py, lr.py, mlr.py, multiple_linear_regression.py
+files = 1.py, iris_nn.py, linear_regression 1.py, linear_regression 2.py, logistic_regression.py, lr.py, mlr.py, multiple_linear_regression.py, recog.py
 default_actions = *: ApplyPatchAction
